@@ -1,19 +1,13 @@
-#!/usr/bin/python3
-import os
-import py_compile
-import shutil
+#!/bin/bash
+if [ -z "$PYFILE" ]; then
+    echo "Error: PYFILE environment variable not set"
+    exit 1
+fi
 
-pyfile = os.environ.get("PYFILE")
+if [ ! -f "$PYFILE" ]; then
+    echo "Error: $PYFILE does not exist or is not a regular file"
+    exit 1
+fi
 
-if not pyfile:
-    print("Error: PYFILE environment variable not set")
-    exit(1)
-
-if not os.path.isfile(pyfile):
-    print(f"Error: {pyfile} does not exist or is not a regular file")
-    exit(1)
-
-pyc_file = f"{pyfile}c"
-py_compile.compile(pyfile, cfile=pyc_file)
-
-shutil.move(pyc_file, os.path.join(os.path.dirname(pyfile), pyc_file))
+pyc_file="${PYFILE}c"
+python3 -m py_compile "$PYFILE" && mv "${PYFILE}c" "$pyc_file"
