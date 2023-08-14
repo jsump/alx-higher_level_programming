@@ -6,54 +6,22 @@
  */
 int is_palindrome(listint_t **head)
 {
-	if (*head == NULL)
-		return (1);
+	int i = 0, len = 0;
+	int arr[100000];
+	listint_t *temp = *head;
 
-	listint_t *slow = *head, *fast = *head;
-
-	while (fast != NULL && fast->next != NULL)
+	if (!*head || !(*head)->next)
+		return(1);
+	while (temp)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
+		arr[len] = temp->n;
+		len++;
+		temp = temp->next;
 	}
-
-	listint_t *second_half = slow;
-	listint_t *prev = NULL, *curr = second_half, *next = NULL;
-
-	while (curr != NULL)
+	for (i = 0; i < len / 2; i++)
 	{
-		next = curr->next;
-		curr->next = prev;
-		prev = curr;
-		curr = next;
+		if (arr[i] != arr[len - i - 1])
+			return (0);
 	}
-
-	second_half = prev;
-	listint_t *p1 = *head, *p2 = second_half;
-	int is_palindrome = 1;
-
-	while (p2 != NULL)
-	{
-		if (p1->n != p2->n)
-		{
-			is_palindrome = 0;
-			break;
-		}
-
-		p1 = p1->next;
-		p2 = p2->next;
-	}
-
-	// Restore the original second half
-	prev = NULL;
-	curr = second_half;
-	while (curr != NULL)
-	{
-		next = curr->next;
-		curr->next = prev;
-		prev = curr;
-		curr = next;
-	}
-
-	return is_palindrome;
+	return (1);
 }
