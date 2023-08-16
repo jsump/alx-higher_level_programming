@@ -1,4 +1,5 @@
 #!/bin/bash
+
 if [ -z "$PYFILE" ]; then
     echo "Error: PYFILE environment variable not set"
     exit 1
@@ -9,5 +10,6 @@ if [ ! -f "$PYFILE" ]; then
     exit 1
 fi
 
-pyc_file="${PYFILE}c"
-python3 -m py_compile "$PYFILE" && mv "${PYFILE}c" "$pyc_file"
+pyc_dir="__pycache__"
+pyc_file="${PYFILE%.py}.$pyc_dir"
+python3 -m py_compile "$PYFILE" && mv "$pyc_dir/$pyc_file" .
