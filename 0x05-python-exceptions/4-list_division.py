@@ -24,6 +24,6 @@ def list_division(my_list_1, my_list_2, list_length):
             finally:
                 result_list.append(result)
     except TypeError:
-            print("out of range")
+        print("out of range")
     finally:
-            return result_list
+        return result_list
