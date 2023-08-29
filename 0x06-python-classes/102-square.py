@@ -35,7 +35,6 @@ class Square:
             TypeError: If size is not an integer
             ValueError: If size is less than 0
         """
-        self.__size = 0
         self.__size = size
 
     @property
@@ -76,7 +75,7 @@ class Square:
         """
         return self.__size ** 2
 
-    def __lthan__(self, other):
+    def __lt__(self, other):
         """
         This can answer to the '<' comparator
         """
@@ -84,7 +83,7 @@ class Square:
             return self.area() < other.area()
         return NotImplemented
 
-    def __ltet__(self, other):
+    def __le__(self, other):
         """
         This can answer to the '<=' comparator
         """
@@ -92,7 +91,7 @@ class Square:
             return self.area() <= other.area()
         return NotImplemented
 
-    def __equals__(self, other):
+    def __eq__(self, other):
         """
         This can answer to the '==' comparator
         """
@@ -100,7 +99,7 @@ class Square:
             return self.area() == other.area()
         return False
 
-    def __noequal__(self, other):
+    def __ne__(self, other):
         """
         This can answer to the '!=' comparator
         """
@@ -108,7 +107,7 @@ class Square:
             return self.area() != other.area()
         return True
 
-    def __gthan__(self, other):
+    def __gt__(self, other):
         """
         This can answer to the '>' comparator
         """
@@ -116,7 +115,7 @@ class Square:
             return self.area() > other.area()
         return NotImplemented
 
-    def __gtet__(self, other):
+    def __ge__(self, other):
         """
         This can answer to the '>=' comparator
         """
