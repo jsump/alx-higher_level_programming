@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module: 4-square
+Module: 5-square
 This module contains a class name Sqaure which represents a square.
 
 The Square class is defined in this module to provide information
