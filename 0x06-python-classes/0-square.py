@@ -1,4 +1,12 @@
 #!/usr/bin/python3
+"""
+Module: 0-square
+This module contains a class name Sqaure which represents a square.
+
+The Square class is defined in this module to provide information
+for creating square-related functionality. While the class is currectly empty,
+it can be a starting point for building more comlex features in the future.
+"""
 class Square:
     """
     This is a class that represents a square.
