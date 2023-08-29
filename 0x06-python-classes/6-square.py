@@ -35,8 +35,6 @@ class Square:
             TypeError: If size is not an integer
             ValueError: If size is less than 0
         """
-        self.__size = 0
-        self.__position = (0, 0)
         self.__size = size
         self.__position = position
 
@@ -116,5 +114,7 @@ class Square:
         if self.__size == 0:
             print()
         else:
+            for _ in range(self.__position[1]):
+                print()
             for _ in range(self.__size):
                 print(" " * self.__position[0] + "#" * self.__size)
