@@ -90,10 +90,10 @@ class Square:
             TypeError: If value is not a tuple of 2 integers
         """
         if not isinstance(value, tuple) or \
-            len(value) != 2 or \
-            not all(isinstance(i, int) for i in value) or \
-            not all(i >= 0 for i in value):
-                raise TypeError("position must be a tuple of 2 positive integers")
+           len(value) != 2 or \
+           not all(isinstance(i, int) for i in value) or \
+           not all(i >= 0 for i in value):
+            raise TypeError("position must be a tuple of 2 positive integers")
 
         self.__position = value
 
@@ -110,9 +110,13 @@ class Square:
         """
         This prints in stdout the square with the character '#'.
         If 'size' is equal to 0, print an empty line.
+        'position' should be used by using space - don't fill lines byspaces
+        when'position[1] > 0
         """
         if self.__size == 0:
             print()
         else:
-            for _ in range(self.__size):
-                print("#" * self.__size)
+            for _ in range(self.__position[1]):
+                print()
+            for _in range(self.__size):
+                print(" " * self.__position[0] + "#" * self.__size)
