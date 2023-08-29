@@ -56,7 +56,7 @@ class Square:
         This sets the given size of square
 
         Args:
-            value (int): The new given suare size.
+            value (int): The new given square size.
 
         Raises:
             TypeError: If size is not an integer
@@ -86,12 +86,14 @@ class Square:
 
         Args:
             value(tuple): the new position od the square
+        Raises:
+            TypeError: If value id not a tuple of 2 integers
         """
         if not isinstance(value, tuple) or \
             len(value) != 2 or \
             not all(isinstance(i, int) for i in value) or \
             not all(i >= 0 for i in value):
-                raise TypeError("position must be a tuuple of 2 positive integers")
+                raise TypeError("position must be a tuple of 2 positive integers")
 
         self.__position = value
 
