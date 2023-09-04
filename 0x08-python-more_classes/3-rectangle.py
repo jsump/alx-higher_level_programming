@@ -114,9 +114,9 @@ class Rectangle:
         If width or height = 0, perimeter = 0
         """
         if self.__width == 0 or self.__height == 0:
-            return ""
+            print()
         rectangle_str = ""
         for _ in range(self.__height):
             rectangle_str += "#" * self.__width
             rectangle_str += "\n"
-        return rectangle_str
+        print(rectangle_str)
