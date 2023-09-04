@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module: 2-rectangle
+Module: 4-rectangle
 
 This module defines a rectangle based on 0-rectangle.py.
 It contains a class name Rectangle which represents a square.
@@ -119,4 +119,7 @@ class Rectangle:
         for _ in range(self.__height):
             rectangle_str += "#" * self.__width
             rectangle_str += "\n"
-        return rectangle_str
+        print(rectangle_str)
+
+    def __rep__(self):
+        return f"Rectangle({self.width}, {self__height})"
