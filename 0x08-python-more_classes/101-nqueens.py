@@ -35,27 +35,23 @@ def solve_nqueens(n):
                 return False
         return True
 
-    def solve(board, row, n, solutions):
+    def solve(row, n, board=None):
         """
         This tries different positions recursively for each row
         until it finds a valid solution.
         """
+        if board is None:
+            board = [-1] * n
+
         if row == n:
-            solutions.append([(i, board[i]) for i in range(n)])
+            print([[i, board[i]] for i in range(n)])
         else:
             for col in range(n):
                 if is_safe(board, row, col):
                     board[row] = col
-                    solve(board, row + 1, n, solutions)
+                    solve(row + 1, n, board)
 
-    board = [-1] * n
-    solutions = []
-    solve(board, 0, n, solutions)
-
-    for solution in solutions:
-        for pair in solution:
-            print(pair, end=" ")
-        print()
+    solve(0, n)
 
 
 if __name__ == "__main__":
