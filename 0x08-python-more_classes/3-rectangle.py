@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module: 1-rectangle
+Module: 2-rectangle
 
 This module defines a rectangle based on 0-rectangle.py.
 It contains a class name Rectangle which represents a square.
@@ -85,3 +85,25 @@ class Rectangle:
             raise ValueError("height must be >= 0")
 
         self.__height = value
+
+    def area(self):
+        """
+        This calculates the area of a rectangle
+
+        Returns:
+            int: the area of the rectangle
+        """
+        return self.__height * self.__width
+
+    def perimeter(self):
+        """
+        This calculates the perimeter of a rectangle
+
+        If width and height is equal to 0, perimeter = 0
+
+        Returns:
+            int : the aperimeter of a rectangle
+        """
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return 2 * (self.__height + self.__width)
