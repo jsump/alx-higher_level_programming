@@ -2,7 +2,7 @@
 """
 Module: 2-rectangle
 
-This module defines a rectangle based on 0-rectangle.py.
+This module defines a rectangle based on 1-rectangle.py.
 It contains a class name Rectangle which represents a square.
 """
 
