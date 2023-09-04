@@ -107,3 +107,16 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__height + self.__width)
+
+    def __str__(self):
+        """
+        This is to print the rectabgle with the character '#'.
+        If width or height = 0, perimeter = 0
+        """
+        if self.__width == 0 or self.__height == 0:
+            return ""
+        rectangle_str = ""
+        for _ in range(self.__height):
+            rectangle_str += "#" * self.__width
+            rectangle_str += "\n"
+        return rectangle_str
