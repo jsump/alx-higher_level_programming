@@ -130,8 +130,8 @@ class Rectangle:
 
     def __del__(self):
         """
-        This is to print the message Bye rectangle... 
-        (... being 3 dots not ellipsis) when an instance of 
+        This is to print the message Bye rectangle...
+        (... being 3 dots not ellipsis) when an instance of
         Rectangle is deleted
         """
         print("Bye rectangle...")
