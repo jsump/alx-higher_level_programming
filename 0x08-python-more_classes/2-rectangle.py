@@ -96,11 +96,13 @@ class Rectangle:
 
     def perimeter(self):
         """
-        Thsi calculates the perimeter of a rectangle
+        This calculates the perimeter of a rectangle
 
         If width and height is equal to 0, perimeter = 0
 
         Returns:
             int : the aperimeter of a rectangle
         """
+        if self.__width == 0 or self.__height == 0:
+            return 0
         return 2 * (self.__height + self.__width)
