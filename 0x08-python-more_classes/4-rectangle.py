@@ -119,7 +119,7 @@ class Rectangle:
         for _ in range(self.__height):
             rectangle_str += "#" * self.__width
             rectangle_str += "\n"
-        print(rectangle_str)
+        return rectangle_str.rstrip()
 
-    def __rep__(self):
-        return f"Rectangle({self.width}, {self__height})"
+    def __repr__(self):
+        return f"Rectangle({self.width}, {self.__height})"
