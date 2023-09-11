@@ -1,8 +1,19 @@
 import unittest
+"""
+Module: 1-my_list
+
+This module contains the test for task 1-my_list.py
+"""
 
 
 class MyList(list):
+    """
+    This class inherits from "list"
+    """
     def print_sorted(self):
+        """
+        Prints the lsit in ascending sort
+        """
         sorted_list = sorted(self)
         print(sorted_list)
 
@@ -18,10 +29,20 @@ class TestMyList(unittest.TestCase):
         It redirects the standard output to capture the printed result
         and compares it to the expected sorted list.
         """
-        my_list = MyList([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5])
+        my_list = MyList([3, 1, 4, 2])
+
+        from io import StringIO
+        import sys
+        original_stdout = sys.stdout
+        sys.stdout = StringIO()
+
         my_list.print_sorted()
 
-        self.assertEqual(my_list, "[1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]\n")
+        printed_output = sys.stdout.getvalue()
+
+        sys.stdout = original_stdout
+
+        self.assertEqual(printed_output, "[1, 2, 3, 4]\n")
 
 
 if __name__ == '__main__':
