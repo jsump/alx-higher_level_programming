@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
-Module: 8-rectangle
+Module: 9-rectangle
 
 This module contains a class that inherits from BaseGeometry
-(7-base_geometry.py)
+(8-base_geometry.py)
 """
 
 
@@ -19,7 +19,7 @@ class BaseGeometry():
         Raises:
             Exception: with message 'area() is not implemented'
         """
-        raise Exception("area() is not implemented")
+        pass
 
     def integer_validator(self, name, value):
         """
@@ -49,9 +49,20 @@ class Rectangle(BaseGeometry):
         width and height must be positive integers,
         validated by integer_validatorself.__width = 0
         """
-        self.__width = 0
         self.__height = 0
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
         self.__height = height
+
+    def area(self):
+        """
+        This calculates the area
+        """
+        return self.__width * self.__height
+
+    def __str__(self):
+        """
+        This function Should return the rectangle description.
+        """
+        return f"[Rectangle] {self.__width}/{self.__height}"
