@@ -11,7 +11,6 @@ class MyList(list):
     This class is used to inherit from "list"
     """
 
-
     def print_sorted(self):
         """
         This function prints the list in ascending sort.
