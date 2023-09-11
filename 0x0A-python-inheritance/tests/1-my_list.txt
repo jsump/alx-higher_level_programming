@@ -1,0 +1,22 @@
+import unittest
+
+class TestMyList(unittest.TestCase):
+	def test_print_sorted(self):
+		my_list = MyList([3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5])
+
+		from io import StringIO
+		import sys
+		original_stdout = sys.stdout
+		sys.stdout = StringIO()
+
+		my_list_print_sorted()
+
+		printed_output = sys.stdout.getvalue()
+
+		sys.stdout = original_stdout
+
+		self.assertEqual(printed_output, "[1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]\n")
+
+
+if __name__ = "__main__":
+	unittest.main()
