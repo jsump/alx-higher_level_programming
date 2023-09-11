@@ -1,9 +1,9 @@
-import unittest
 """
 Module: 1-my_list
 
 This module contains the test for task 1-my_list.py
 """
+import unittest
 
 
 class MyList(list):
