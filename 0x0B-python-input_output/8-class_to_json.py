@@ -8,9 +8,6 @@ for JSON serialization of an object.
 """
 
 
-import json
-
-
 def class_to_json(obj):
     """
     This function returns the dictionary description
