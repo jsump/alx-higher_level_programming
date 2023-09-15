@@ -111,3 +111,11 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError(f"{attribute_name} must be > 0")
         return value
+
+    def display(self):
+        """
+        This prints out REctangle instance with the character '#'
+        in stdout.
+        """
+        for _ in range(self.height):
+            print("#" * self.width)

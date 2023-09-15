@@ -137,6 +137,14 @@ class TestRectangle(unittest.TestCase):
         """
         self.assertEqual(self.rectangle.area(), 200)
 
+    def display(self):
+        """
+        This will test if the rectangle will be printed and displayed
+        correctly.
+        """
+        expected_output = ("#" * 10 + "\n") * 20
+        self.assertEqual(self.rectangle.display(), expected_output)
+
 
 if __name__ == "__main__":
     unittest.main()
