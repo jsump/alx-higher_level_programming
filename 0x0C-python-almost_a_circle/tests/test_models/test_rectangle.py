@@ -137,13 +137,23 @@ class TestRectangle(unittest.TestCase):
         """
         self.assertEqual(self.rectangle.area(), 200)
 
-    def display(self):
+    def test_display(self):
         """
         This will test if the rectangle will be printed and displayed
         correctly.
         """
-        expected_output = ("#" * 10 + "\n") * 20
-        self.assertEqual(self.rectangle.display(), expected_output)
+        rectangle = Rectangle(2, 3, 4, 5)
+
+        import sys
+        from io import StringIO
+        saved_stdout = sys.stdout
+        sys.stdout = StringIO()
+
+        rectangle.display()
+        output = sys.stdout.getvalue()
+        sys.stdout = saved_stdout
+        expected_output = "\n\n\n\n\n    ##\n    ##\n    ##\n"
+        self.assertEqual(output, expected_output)
 
     def test_string_representation(self):
         """
