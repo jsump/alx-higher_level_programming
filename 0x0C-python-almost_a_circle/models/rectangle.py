@@ -36,6 +36,8 @@ class Rectangle(Base):
         """
         This function sets the value of the width
         """
+        self.__validate_integer("width", value)
+        self.__validate_non_negative("width", value)
         self.__width = value
 
     @property
@@ -50,6 +52,8 @@ class Rectangle(Base):
         """
         This sets the value of the height of the rectangle.
         """
+        self.__validate_integer("height", value)
+        self.__validate_non_negative("height", value)
         self.__height = value
 
     @property
@@ -64,6 +68,8 @@ class Rectangle(Base):
         """
         This sets the value of x.
         """
+        self.__validate_integer("x", value)
+        self.__validate_non_negative("x", value)
         self.__x = value
 
     @property
@@ -78,10 +84,30 @@ class Rectangle(Base):
         """
         This sets the value of y.
         """
+        self.__validate_integer("y", value)
+        self.__validate_non_negative("y", value)
         self.__y = value
 
     def area(self):
         """
         This function calculates the area of a rectangle.
         """
-        pass
+        return self.__width * self.__height
+
+    def __validate_integer(self, attribute_name, value):
+        """
+        This function checks if input is an interger.
+        """
+        if not isinstance(value, int):
+            raise TypeError(f"{attribute_name} must be an integer")
+            return value
+
+    def __validate_non_negative(self, attribute_name, value):
+        """
+        This function checks if input is a negative.
+        """
+        if not isinstance(value, int):
+            raise TypeError(f"{attribute_name} must be an integer")
+        if value < 0:
+            raise ValueError(f"{attribute_name} must be > 0")
+        return value

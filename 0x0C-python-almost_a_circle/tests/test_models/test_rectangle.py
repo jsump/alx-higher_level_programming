@@ -58,6 +58,85 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(AttributeError):
             print(self.rectangle.__y)
 
+    def test_invalid_values(self):
+        """
+        This tests whether the values given are invalid.
+        """
+        rectangle = Rectangle(5, 10, 2, 3)
+        self.assertEqual(rectangle.width, 5)
+        self.assertEqual(rectangle.height, 10)
+        self.assertEqual(rectangle.x, 2)
+        self.assertEqual(rectangle.y, 3)
+
+    def test_invalid_width(self):
+        """
+        This tests whether the width given is invalid.
+        """
+        with self.assertRaises(TypeError):
+            Rectangle("invalid input", 10, 2, 3)
+
+    def test_invalid_height(self):
+        """
+        This tests whether the height given is invalid.
+        """
+        with self.assertRaises(TypeError):
+            Rectangle(5, "invalid input", 2, 3)
+
+    def test_invalid_x(self):
+        """
+        This tests whether the x given is invalid.
+        """
+        with self.assertRaises(TypeError):
+            Rectangle(5, 10, "invalid input", 3)
+
+    def test_invalid_y(self):
+        """
+        This tests whether the y given is invalid.
+        """
+        with self.assertRaises(TypeError):
+            Rectangle("5, 10, 2, invalid input")
+
+    def test_negative_width(self):
+        """
+        This tests if the wisth given is negative.
+        """
+        with self.assertRaises(ValueError):
+            Rectangle(-5, 10, 2, 3)
+
+    def test_negative_width(self):
+        """
+        This tests if the width given is negative.
+        """
+        with self.assertRaises(ValueError):
+            Rectangle(-5, 10, 2, 3)
+
+    def test_negative_height(self):
+        """
+        This tests if the height given is negative.
+        """
+        with self.assertRaises(ValueError):
+            Rectangle(5, -10, 2, 3)
+
+    def test_negative_x(self):
+        """
+        This tests if the x given is negative.
+        """
+        with self.assertRaises(ValueError):
+            Rectangle(5, 10, -2, 3)
+
+    def test_negative_y(self):
+        """
+        This tests if the y given is negative.
+        """
+        with self.assertRaises(ValueError):
+            Rectangle(5, 10, 2, -3)
+
+    def test_area(self):
+        """
+        This tests that area of a rectangle is calculated correctly.
+        """
+        self.assertEqual(self.rectangle.area(), 200)
+
 
 if __name__ == "__main__":
     unittest.main()
