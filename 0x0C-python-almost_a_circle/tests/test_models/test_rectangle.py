@@ -163,6 +163,17 @@ class TestRectangle(unittest.TestCase):
         expected_string = "[Rectangle] (1) 5/5 - 10/20"
         self.assertEqual(str(self.rectangle), expected_string)
 
+    def test_update(self, *args):
+        """
+        This tests if the attributes have been assigned corrct arguments.
+        """
+        self.rectangle.update(2, 15, 25, 10, 10)
+        self.assertEqual(self.rectangle.id, 2)
+        self.assertEqual(self.rectangle.width, 15)
+        self.assertEqual(self.rectangle.height, 25)
+        self.assertEqual(self.rectangle.x, 10)
+        self.assertEqual(self.rectangle.y, 10)
+
 
 if __name__ == "__main__":
     unittest.main()
