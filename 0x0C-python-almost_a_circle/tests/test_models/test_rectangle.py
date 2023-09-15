@@ -145,6 +145,14 @@ class TestRectangle(unittest.TestCase):
         expected_output = ("#" * 10 + "\n") * 20
         self.assertEqual(self.rectangle.display(), expected_output)
 
+    def test_string_representation(self):
+        """
+        This tests that the representation of the rectangle is in the correct
+        format.
+        """
+        expected_string = "[Rectangle] (1) 5/5 - 10/20"
+        self.assertEqual(str(self.rectangle), expected_string)
+
 
 if __name__ == "__main__":
     unittest.main()
