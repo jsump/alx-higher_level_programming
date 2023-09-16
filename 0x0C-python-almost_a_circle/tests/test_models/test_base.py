@@ -6,7 +6,7 @@ class TestBase(unittest.TestCase):
     """
     This class tests the Base class file.
     """
-    
+
     def test_id_assigned_when_id_provided(self):
         """
         This function tests whether or not an 'id'
@@ -30,7 +30,7 @@ class TestBase(unittest.TestCase):
         """
         This function tests the type of date being input as 'id'.
         Making sure it's an integer.
-        
+
         *requirement says do not need to test ofor type*
         """
         base = Base(id=100)
@@ -44,6 +44,40 @@ class TestBase(unittest.TestCase):
         base = Base(id=100)
         with self.assertRaises(AttributeError):
             base.__nb_objects
+
+    def test_to_json_string_with_list(self):
+        """
+        This tests if a list of dictionaries was created.
+        """
+        list_dictionaries = [
+                {"name": "John", "age": 30},
+                {"name": "Jane", "age": 28}
+        ]
+
+        json_string = Base.to_json_string(list_dictionaries)
+
+        expected_json_string = ('[{"name": "John", "age": 30}, '
+                                '{"name": "Jane", "age": 28}]')
+        self.assertEqual(json_string, expected_json_string)
+
+    def test_to_json_string_with_empty_list(self):
+        """
+        This is to test if the list is empty.
+        """
+        list_dictionaries = []
+        json_string = Base.to_json_string(list_dictionaries)
+
+        expected_json_string = "[]"
+        self.assertEqual(json_string, expected_json_string)
+
+    def test_to_json_string_with_none(self):
+        """
+        This tests if the list is 'None'.
+        """
+        json_string = Base.to_json_string(None)
+
+        expected_json_string = "[]"
+        self.assertEqual(json_string, expected_json_string)
 
 
 if __name__ == "__main__":
