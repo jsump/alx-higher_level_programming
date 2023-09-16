@@ -32,6 +32,42 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(square.width, 8)
         self.assertEqual(square.height, 8)
 
+    def test_update_with_args(self):
+        """
+        This tests is the attributes have been asssigned
+        the correct arguments.
+        """
+        square = Square(5)
+        square.update(1, 10, 2, 3)
+        self.assertEqual(square.id, 1)
+        self.assertEqual(square.size, 10)
+        self.assertEqual(square.x, 2)
+        self.assertEqual(square.y, 3)
+
+    def test_update_with_kwargs(self):
+        """
+        This tests to ensure the attributes have been assigned
+        the correct key/values.
+        """
+        square = Square(5)
+        square.update(id=1, size=10, x=1, y=3)
+        self.assertEqual(square.id, 1)
+        self.assertEqual(square.size, 10)
+        self.assertEqual(square.x, 1)
+        self.assertEqual(square.y, 3)
+
+    def test_update_with_args_and_kwargs(self):
+        """
+        This tests that the attributes have been asssigned the 
+        correct arguments.
+        """
+        square = Square(5)
+        square.update(id=1, size=10, y=3)
+        self.assertEqual(square.id, 1)
+        self.assertEqual(square.size, 10)
+        self.assertEqual(square.x, 0)
+        self.assertEqual(square.y, 3)
+
 
 if __name__ == "__main__":
     unittest.main()
