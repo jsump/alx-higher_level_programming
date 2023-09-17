@@ -1,4 +1,6 @@
+import json
 import unittest
+from unittest.mock import patch, mock_open
 from models.base import Base
 
 
@@ -78,6 +80,19 @@ class TestBase(unittest.TestCase):
 
         expected_json_string = "[]"
         self.assertEqual(json_string, expected_json_string)
+
+
+    def test_from_json_string(self):
+        """
+        This tests whether the list of dictionaries is empty or None.
+        """
+        json_string = ""
+        expected_json_string = []
+        self.assertEqual(Base.from_json_string(json_string), expected_json_string)
+
+        json_string = None
+        expected_json_string =[]
+        self.assertEqual(Base.from_json_string(json_string), expected_json_string)
 
 
 if __name__ == "__main__":
