@@ -149,5 +149,47 @@ class TestBase(unittest.TestCase):
        instances = Base.load_from_file()
        self.assertEqual(len(instances), 0)
 
+
+       """Task 16"""
+       def test_save_to_file(self):
+        """
+        This tests if a list of objects can be saved to a file.
+        """
+        class MockObject:
+            """
+            Define mock objects
+            """
+            def __init__(self, name, age):
+                self.name = name
+                self.age = age
+
+            def to_dictionary(self):
+                return [{"name": self.name, "age": self.age}]
+        
+        mock1 = MockObject("John", 30)
+        mock2 = MockObject("Jane", 28)
+        list_objs = [mock1, mock2]
+
+        expected_json = ('[{"name": "John", "age": 30}, '
+                         '{"name": "Jane", "age": 28}]')
+
+        with patch("builtins.open", mock_open()) as mock_file:
+            with patch.object(
+                MockObject, "to_dictionary",
+                return_value=[
+                    {"name": mock1.name, "age": mock1.age},
+                    {"name": mock2.name, "age": mock2.age}
+                    ]
+            ):
+                Base.save_to_file(list_objs)
+                expected_filename= "Base.json"
+                expected_mode = "w"
+                mock_file.assert_called_once_with(expected_filename, expected_mode)
+
+                actual_write_call = mock_file().write.call_args[0][0]
+                self.assertEqual(actual_write_call, expected_json)
+
+
+
 if __name__ == "__main__":
     unittest.main()
