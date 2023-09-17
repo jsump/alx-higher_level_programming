@@ -1,7 +1,10 @@
 import json
 import unittest
+import os
 from unittest.mock import patch, mock_open
 from models.base import Base
+from models.square import Square
+from models.rectangle import Rectangle
 
 
 class TestBase(unittest.TestCase):
@@ -94,6 +97,57 @@ class TestBase(unittest.TestCase):
         expected_json_string =[]
         self.assertEqual(Base.from_json_string(json_string), expected_json_string)
 
+    def setUp(self):
+        """
+        This tests whether the file names exist.
+        """
+        self.rectangle_filename = "Reactangle.json"
+        self.square_filename = "Square.json"
+        self.invalid_filename = "Invalid.json"
+
+    def tearDown(self):
+        """
+        This tests whether the file pathe exists.
+        """
+        if os.path.exists(self.rectangle_filename):
+            os.remove(self.rectangle_filename)
+        if os.path.exists(self.square_filename):
+            os.remove(self.square_filename)
+        if os.path.exists(self.invalid_filename):
+            os.remove(self.invalid_filename)
+
+    def test_load_from_file_rectangle(self):
+        """
+        This tests whether the created instances have been loaded to
+        the rectangle file.
+        """
+        rectangle = Rectangle(10, 5)
+        rectangle.save_to_file([rectangle])
+
+        instances = Rectangle.load_from_file()
+
+        self.assertEqual(len(instances), 1)
+        self.assertEqual(instances[0].__dict__, rectangle.__dict__)
+
+    def test_load_from_file_squarre(self):
+        """
+        This tests if a Square instance has been created and saved
+        to a file square.
+        """
+        square = Square(7)
+        square.save_to_file([square])
+
+        instances = Square.load_from_file()
+
+        self.assertEqual(len(instances), 1)
+        self.assertEqual(instances[0].__dict__, square.__dict__)
+
+    def test_load_from_file_invalid(self):
+       """
+       This tests if the isnatnces have been properly loaded.
+       """
+       instances = Base.load_from_file()
+       self.assertEqual(len(instances), 0)
 
 if __name__ == "__main__":
     unittest.main()
