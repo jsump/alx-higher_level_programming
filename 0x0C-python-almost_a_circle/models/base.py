@@ -8,7 +8,7 @@ The goal is to manage 'id' attribute in future classes to
 avoid duplicating the same code(by extension. same bugs)
 """
 
-
+import os
 import json
 
 
@@ -82,13 +82,15 @@ class Base:
         and create methods.
         """
         filename = f"{cls.__name__}.json"
+        if not os.path.exists(filename):
+            return []
+        instances = []
         try:
             with open(filename, "r") as file:
                 data = json.load(file)
-                instances = []
                 for instance_data in data:
                     instance = cls.create(**instance_data)
                     instances.append(instance)
-                return instances
-        except FileNotFoundError:
-            return []
+        except Exception as e:
+            print(f"Error:, {str(e)}")
+        return instances
