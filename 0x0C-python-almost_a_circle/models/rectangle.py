@@ -37,7 +37,8 @@ class Rectangle(Base):
         This function sets the value of the width
         """
         self.__validate_integer("width", value)
-        self.__validate_non_negative("width", value)
+        if value <= 0:
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
@@ -53,7 +54,8 @@ class Rectangle(Base):
         This sets the value of the height of the rectangle.
         """
         self.__validate_integer("height", value)
-        self.__validate_non_negative("height", value)
+        if value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
     @property
@@ -69,7 +71,8 @@ class Rectangle(Base):
         This sets the value of x.
         """
         self.__validate_integer("x", value)
-        self.__validate_non_negative("x", value)
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
     @property
@@ -85,7 +88,8 @@ class Rectangle(Base):
         This sets the value of y.
         """
         self.__validate_integer("y", value)
-        self.__validate_non_negative("y", value)
+        if value < 0:
+            raise ValueError("y must be >= 0")
         self.__y = value
 
     def area(self):
