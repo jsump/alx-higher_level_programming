@@ -82,8 +82,6 @@ class Base:
         and create methods.
         """
         filename = f"{cls.__name__}.json"
-        if not os.path.exists(filename):
-            return []
         instances = []
         try:
             with open(filename, "r") as file:
@@ -91,6 +89,6 @@ class Base:
                 for instance_data in data:
                     instance = cls.create(**instance_data)
                     instances.append(instance)
-        except Exception as e:
-            print(f"Error:, {str(e)}")
-        return instances
+                return instances
+        except FileNotFoundError:
+            return[]
