@@ -3,8 +3,7 @@ import unittest
 import os
 from unittest.mock import patch, mock_open
 from models.base import Base
-from models.square import Square
-from models.rectangle import Rectangle
+
 
 
 class TestBase(unittest.TestCase):
@@ -197,6 +196,7 @@ class TestBase(unittest.TestCase):
                     )
                     actual_write_call = mock_file().write.call_args[0][0]
                     self.assertEqual(actual_write_call, expected_json)
+
     """Task 19"""
     def test_load_from_file(self):
         """
