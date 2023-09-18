@@ -96,7 +96,7 @@ class TestBase(unittest.TestCase):
         )
 
         json_string = None
-        expected_json_string =[]
+        expected_json_string = []
         self.assertEqual(
             Base.from_json_string(json_string),
             expected_json_string
@@ -189,7 +189,7 @@ class TestBase(unittest.TestCase):
                         ]):
 
                     Base.save_to_file(list_objs)
-                    expected_filename= "Base.json"
+                    expected_filename = "Base.json"
                     expected_mode = "w"
                     mock_file.assert_called_once_with(
                         expected_filename,
@@ -197,8 +197,6 @@ class TestBase(unittest.TestCase):
                     )
                     actual_write_call = mock_file().write.call_args[0][0]
                     self.assertEqual(actual_write_call, expected_json)
-
-
 
 
 if __name__ == "__main__":
