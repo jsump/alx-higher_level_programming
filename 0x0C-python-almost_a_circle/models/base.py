@@ -78,7 +78,8 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """
-        This function returns a list of instances.
+        This function returns a list of instances by using from_json_sting
+        and create methods.
         """
         filename = f"{cls.__name__}.json"
         try:
