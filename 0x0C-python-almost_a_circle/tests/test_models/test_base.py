@@ -84,18 +84,23 @@ class TestBase(unittest.TestCase):
         expected_json_string = "[]"
         self.assertEqual(json_string, expected_json_string)
 
-
     def test_from_json_string(self):
         """
         This tests whether the list of dictionaries is empty or None.
         """
         json_string = ""
         expected_json_string = []
-        self.assertEqual(Base.from_json_string(json_string), expected_json_string)
+        self.assertEqual(
+            Base.from_json_string(json_string),
+            expected_json_string
+        )
 
         json_string = None
         expected_json_string =[]
-        self.assertEqual(Base.from_json_string(json_string), expected_json_string)
+        self.assertEqual(
+            Base.from_json_string(json_string),
+            expected_json_string
+        )
 
     def setUp(self):
         """
@@ -143,14 +148,13 @@ class TestBase(unittest.TestCase):
         self.assertEqual(instances[0].__dict__, square.__dict__)
 
     def test_load_from_file_invalid(self):
-       """
-       This tests if the isnatnces have been properly loaded.
-       """
-       instances = Base.load_from_file()
-       self.assertEqual(len(instances), 0)
+        """
+        This tests if the isnatnces have been properly loaded.
+        """
+        instances = Base.load_from_file()
+        self.assertEqual(len(instances), 0)
 
-
-       """Task 16"""
+    """Task 16"""
     def test_save_to_file(self):
         """
         This tests if a list of objects can be saved to a file.
@@ -170,18 +174,27 @@ class TestBase(unittest.TestCase):
         mock2 = MockObject("Jane", 28)
         list_objs = [mock1, mock2]
 
-        expected_json = Base.to_json_string([mock1.to_dictionary(), mock2.to_dictionary()])
+        expected_json = Base.to_json_string([
+            mock1.to_dictionary(),
+            mock2.to_dictionary()
+        ])
 
         with patch("os.path.exists", return_value=True):
             with patch("builtins.open", mock_open()) as mock_file:
                 with patch.object(
                         MockObject, "to_dictionary",
-                        side_effect=[mock1.to_dictionary(), mock2.to_dictionary()]):
+                        side_effect=[
+                            mock1.to_dictionary(),
+                            mock2.to_dictionary()
+                        ]):
 
                     Base.save_to_file(list_objs)
                     expected_filename= "Base.json"
                     expected_mode = "w"
-                    mock_file.assert_called_once_with(expected_filename, expected_mode)
+                    mock_file.assert_called_once_with(
+                        expected_filename,
+                        expected_mode
+                    )
                     actual_write_call = mock_file().write.call_args[0][0]
                     self.assertEqual(actual_write_call, expected_json)
 
