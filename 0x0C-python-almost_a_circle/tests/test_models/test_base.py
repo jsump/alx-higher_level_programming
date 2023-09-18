@@ -197,6 +197,19 @@ class TestBase(unittest.TestCase):
                     )
                     actual_write_call = mock_file().write.call_args[0][0]
                     self.assertEqual(actual_write_call, expected_json)
+    """Task 19"""
+    def test_load_from_file(self):
+        """
+        This tests if the method corrcetly returns a list of
+        instances.
+        """
+        with open('Rectangle.json', 'w') as file:
+            file.write('[{"width": 4, "height": 5}, '
+                       '{"width": 2, "height": 3}]')
+        instances = Base.load_from_file()
+        for instance in instances:
+            self.assertIsInstance(instance, Base)
+        os.remove('Rectangle.json')
 
 
 if __name__ == "__main__":
