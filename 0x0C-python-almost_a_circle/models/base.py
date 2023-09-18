@@ -81,7 +81,7 @@ class Base:
         This function returns a list of instances by using from_json_sting
         and create methods.
         """
-        filename = "str{cls.__name__}.json"
+        filename = f"{cls.__name__}.json"
         try:
             with open(filename, "r") as file:
                 data = json.load(file)
