@@ -82,10 +82,10 @@ class Base:
         and create methods.
         """
         filename = f"{cls.__name__}.json"
-        instances = []
         try:
             with open(filename, "r") as file:
                 data = json.load(file)
+                instances = []
                 for instance_data in data:
                     instance = cls.create(**instance_data)
                     instances.append(instance)
