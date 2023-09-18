@@ -58,7 +58,7 @@ class TestSquare(unittest.TestCase):
 
     def test_update_with_args_and_kwargs(self):
         """
-        This tests that the attributes have been asssigned the 
+        This tests that the attributes have been asssigned the
         correct arguments.
         """
         square = Square(5)
