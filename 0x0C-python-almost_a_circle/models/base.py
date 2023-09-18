@@ -91,4 +91,4 @@ class Base:
                     instances.append(instance)
                 return instances
         except FileNotFoundError:
-            pass
+            return []
