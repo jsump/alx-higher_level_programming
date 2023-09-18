@@ -88,6 +88,6 @@ class Base:
                 for instance_data in data:
                     instance = cls.create(**instance_data)
                     instances.append(instance)
-                    return instances
+                return instances
         except FileNotFoundError:
             return []
