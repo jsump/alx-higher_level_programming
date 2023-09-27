@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 """
-Module: 0-add_integer.py
+Module: add_integer
 
 This module contains a function that adds 2 integers.
 """
+
+
+import doctest
 
 
 def add_integer(a, b=98):
@@ -21,3 +24,7 @@ def add_integer(a, b=98):
         b = int(b)
 
     return a + b
+
+
+if __name__ == "__main__":
+    doctest.testfile("tests/0-add_integer.txt")

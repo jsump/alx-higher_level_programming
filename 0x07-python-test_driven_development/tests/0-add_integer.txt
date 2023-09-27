@@ -1,26 +1,31 @@
-import unittest
+>>> add_integer = __import__("0-add_integer").add_integer
 
-class TestAddInteger(unittest.TestCase):
-	def test_add_integer(self):
-		self.assertEqual(add_integer(5, 10), 15)
-		self.assertEqual(add_integer(7.5, 3.5), 11)
-		self.assertEqual(add_integer(2.3, 4.7), 6)
-		self.assertEqual(add_integer(10.5, 7.2), 17)
-		self.assertEqual(add_integer(2), 100)
-		self.assertEqual(add_integer(3.7), 101)
-	
-	def test_add_integer_raises_error(self):
-		with self.assertRaises(TypeError):
-			add_integer("2", 5)
-		with self.assertRaises(TypeError):
-			add_integer(2, "5")
-		with self.assertRaises(TypeError):
-			add_integer("2", "5")
-		with self.assertRaises(TypeError):
-			add_integer(True, 5)
-		with self.assertRaises(TypeError):
-			add_integer(2, False)
+>>> add_integer(2, 3)
+5
 
+>>> add_integer(5.5, 3.5)
+8
 
-if __name__ == "__main__":
-	unittest.main()
+>>> add_integer(6, 0)
+6
+
+>>> add_integer(5.7, 3)
+8
+
+>>> add_integer(5.9, 3)
+8
+
+>>> add_integer('a', 3)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(2, 'b')
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add_integer('a', 'b')
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
