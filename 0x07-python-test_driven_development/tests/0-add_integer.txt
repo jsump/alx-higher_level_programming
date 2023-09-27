@@ -1,0 +1,26 @@
+import unittest
+
+class TestAddInteger(unittest.TestCase):
+	def test_add_integer(self):
+		self.assertEqual(add_integer(5, 10), 15)
+		self.assertEqual(add_integer(7.5, 3.5), 11)
+		self.assertEqual(add_integer(2.3, 4.7), 6)
+		self.assertEqual(add_integer(10.5, 7.2), 17)
+		self.assertEqual(add_integer(2), 100)
+		self.assertEqual(add_integer(3.7), 101)
+	
+	def test_add_integer_raises_error(self):
+		with self.assertRaises(TypeError):
+			add_integer("2", 5)
+		with self.assertRaises(TypeError):
+			add_integer(2, "5")
+		with self.assertRaises(TypeError):
+			add_integer("2", "5")
+		with self.assertRaises(TypeError):
+			add_integer(True, 5)
+		with self.assertRaises(TypeError):
+			add_integer(2, False)
+
+
+if __name__ == "__main__":
+	unittest.main()
