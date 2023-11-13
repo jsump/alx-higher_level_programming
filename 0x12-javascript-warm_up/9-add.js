@@ -9,5 +9,5 @@ const secondInteger = parseInt(argsCount[1]);
 if (!isNaN(firstInteger) && !isNaN(secondInteger)) {
   console.log(addition(firstInteger, secondInteger));
 } else {
-  console.log('Nan');
+  console.log('NaN');
 }
