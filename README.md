@@ -32,3 +32,33 @@ This repository contains higher level programming projects such as:
 	- CSS
 	- JSON
 	- Unit Testing
+~Systems Engineering/Devops
+	- SSH
+	- SSL/TLS
+	- HTTP/S
+	- Webstack Debugging
+	- Servers
+	- Web Servers (Nginx)
+	- Application Servers (Gunicorn)
+	- Configuration Management (Puppet)
+	- Load Balancers
+	- Postmortems
+	- Networking
+	- Monitoring
+~ C
+	- Algorithms
+		-> Searching
+
+~Airbnb Project
+	- Javascript
+	- JQuery
+	- Deployment
+	- APIs
+		->Flask
+~	Hack Days
+~	Python
+	- ORMs (SQLAlchemy)
+	- Templating (Jinja2)
+~Code Debugging
+~Regexes
+
