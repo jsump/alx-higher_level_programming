@@ -6,11 +6,9 @@ class Square extends SquareFrom {
       c = 'X';
     }
 
-    let squareString = '';
     for (let i = 0; i < this.height; i++) {
-      squareString += c.repeat(this.width) + '\n';
+      console.log(c.repeat(this.width));
     }
-    console.log(squareString);
   }
 }
 module.exports = Square;
