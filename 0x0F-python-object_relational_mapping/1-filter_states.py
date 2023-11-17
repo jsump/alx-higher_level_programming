@@ -23,7 +23,7 @@ def list_states(username, password, database):
     )
 
     cursor = db.cursor()
-    cursor.execute("SELECT DISTINCT * FROM states ORDER BY id ASC")
+    cursor.execute("SELECT DISTINCT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
 
     rows = cursor.fetchall()
 
