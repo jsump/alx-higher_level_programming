@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """
 Module: 2-my_filter_states
 
@@ -12,7 +12,7 @@ import sys
 import MySQLdb
 
 
-def display_name_matching_argument(username, password, database, statename):
+def display_name_matching_argument(username, password, database, state_name):
     """
     This function taked an argument and displays all the values
     in the states table of hbtn_0e_0_usa where name matches argument
@@ -22,7 +22,7 @@ def display_name_matching_argument(username, password, database, statename):
             port=3306,
             user=username,
             passwd=password,
-            db=databsae
+            db=database
     )
 
     cursor = db.cursor()
@@ -45,4 +45,4 @@ if __name__ == "__main__":
     database = sys.argv[3]
     state_name = sys.argv[4]
 
-    display_name_matching_argument(username, password, database, sate_name)
+    display_name_matching_argument(username, password, database, state_name)
