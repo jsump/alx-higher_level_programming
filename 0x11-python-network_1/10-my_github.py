@@ -26,7 +26,7 @@ def github_id():
         user_id = response.json()['id']
         print(user_id)
     else:
-        print("Status code: ", response.status_code)
+        print("None")
 
 
 if __name__ == '__main__':
