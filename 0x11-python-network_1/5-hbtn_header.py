@@ -24,6 +24,5 @@ def response_request():
     print(x_request_id)
 
 
-
 if __name__ == '__main__':
     response_request()
