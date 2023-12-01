@@ -18,7 +18,7 @@ def fetch_url_status():
         body = response.read()
         body_str = body.decode('utf-8')
 
-    print('- Body response:')
+    print('Body response:')
     print('\t- type: {}'.format(type(body)))
     print('\t- content: {}'.format(body))
     print('\t- utf8 content: {}'.format(body_str))
