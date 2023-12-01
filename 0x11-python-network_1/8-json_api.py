@@ -20,7 +20,7 @@ def search_api():
     # first argument in cmd line
 
     data = {'q': letter}
-    response = requests.post('http://0.0.0.0:5000/search_user')
+    response = requests.post('http://0.0.0.0:5000/search_user', data=data)
 
     try:
         json_response = response.json()
