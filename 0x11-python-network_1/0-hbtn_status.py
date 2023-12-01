@@ -20,6 +20,7 @@ def fetch_url_status():
     print('- Body response:')
     print('\t- type: {}'.format(type(body)))
     print('\t - content: {}'.format(body))
+    print('\t - utf8 content: {}'.format(body))
 
 
 if __name__ == '__main__':
