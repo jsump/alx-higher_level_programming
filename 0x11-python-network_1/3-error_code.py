@@ -23,9 +23,9 @@ def error_code():
         with urllib.request.urlopen(url) as response:
             body = response.read()
             body_str = body.decode('utf-8')
-            
+
             print(body_str)
-    except:
+    except urllib.error.HTTPError as e:
         print("Error code: {}".format(e.code))
 
 
