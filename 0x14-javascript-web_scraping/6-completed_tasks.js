@@ -20,5 +20,5 @@ request.get(apiUrl, (error, response, body) => {
     }, {});
 
     console.log(tasksDoneByUser);
-    }
+  }
 });
