@@ -19,8 +19,6 @@ request.get(apiUrl, (error, response, body) => {
       return acc;
     }, {});
 
-    for (const userId in tasksDoneByUser) {
-      console.log(`'${userId}': ${tasksDoneByUser[userId]}`);
+    console.log(tasksDoneByUser);
     }
-  }
 });
