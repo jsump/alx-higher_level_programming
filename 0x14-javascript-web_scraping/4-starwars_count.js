@@ -2,7 +2,7 @@
 const request = require('request');
 
 const apiUrl = process.argv[2]; // get api from cmd line arg
-const charId = '18'; // wedge antilles character ID
+const charId = 18; // wedge antilles character ID
 
 request.get(apiUrl, (error, response, body) => {
   if (error) {
