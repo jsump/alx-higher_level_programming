@@ -10,7 +10,7 @@ request.get(apiUrl, (error, response, body) => {
   } else {
     const films = JSON.parse(body).results;
     const moviesWithCharID = films.filter((film) =>
-      film.characters.includes(`https://swapi-api.alx-tools.com/api/films/${charId}/`));
+      film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${charId}/`));
     console.log(moviesWithCharID.length); // Print number of movies with Wedge Antilles
   }
 });
